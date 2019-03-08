@@ -22,7 +22,7 @@ namespace EAPingPong{
         private computerScore!:number;
         private playerScore!:number;
         private destroy!:Dispose;
-
+        private net!:Boundaries;
         
         start(){
             this.paddle1 = new Paddle(20,10,10,100,this.app.stage);
@@ -32,8 +32,9 @@ namespace EAPingPong{
             this.boundRight = new Boundaries(790,0,10,800,this.app.stage);
             this.boundBottom = new Boundaries(0,790,800,10,this.app.stage);
             this.boundLeft = new Boundaries(0,0,10,800,this.app.stage);
-            this.ballVelocityX = -2;
-            this.ballVelocityY = -2;
+            this.net = new Boundaries(399,0,2,this.app.screen.height,this.app.stage);
+            this.ballVelocityX = 4;
+            this.ballVelocityY = 4;
             this.collider = new CollisionsHandler();
             this.destroy = new Dispose(this.paddle1,this.paddle2,this.ball,this.app.stage);
             this.computerScore = 0;
@@ -65,8 +66,7 @@ namespace EAPingPong{
                 movePaddle2();
             
                 function movePaddle1() {
-                    let x1 = _this.paddle1.x;
-                    let y1 = _this.ball.y - _this.paddle1.height/2;
+                    let y1 = (_this.ball.y - _this.paddle1.height/2);
                     if(y1 < 0){
                         y1 = 0;
                     }

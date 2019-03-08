@@ -290,10 +290,10 @@ declare namespace PIXI {
         renderCanvas(renderer: CanvasRenderer): void;
         destroy(options?: DestroyOptions | boolean): void;
 
-        once(event: interaction.InteractionEventTypes | 'added' | 'removed', fn: (event: interaction.InteractionEvent) => void, context?: any): this;
+        once(event: interaction.interactionEventTypes | 'added' | 'removed', fn: (event: interaction.InteractionEvent) => void, context?: any): this;
         //tslint:disable-next-line:ban-types forbidden-types
         once(event: string, fn: Function, context?: any): this;
-        on(event: interaction.InteractionEventTypes | 'added' | 'removed', fn: (event: interaction.InteractionEvent) => void, context?: any): this;
+        on(event: interaction.interactionEventTypes | 'added' | 'removed', fn: (event: interaction.InteractionEvent) => void, context?: any): this;
         //tslint:disable-next-line:ban-types forbidden-types
         on(event: string, fn: Function, context?: any): this;
         //tslint:disable-next-line:ban-types forbidden-types
@@ -399,16 +399,16 @@ declare namespace PIXI {
         ): DisplayObject;
         destroy(): void;
 
-        on(event: interaction.InteractionEventTypes, fn: (event: interaction.InteractionEvent) => void, context?: any): this;
+        on(event: interaction.interactionEventTypes, fn: (event: interaction.InteractionEvent) => void, context?: any): this;
         //tslint:disable-next-line:ban-types forbidden-types
         on(event: string, fn: Function, context?: any): this;
-        once(event: interaction.InteractionEventTypes, fn: (event: interaction.InteractionEvent) => void, context?: any): this;
+        once(event: interaction.interactionEventTypes, fn: (event: interaction.InteractionEvent) => void, context?: any): this;
         //tslint:disable-next-line:ban-types forbidden-types
         once(event: string, fn: Function, context?: any): this;
-        removeListener(event: interaction.InteractionEventTypes, fn?: (event: interaction.InteractionEvent) => void, context?: any): this;
-        removeAllListeners(event?: interaction.InteractionEventTypes): this;
-        off(event: interaction.InteractionEventTypes, fn?: (event: interaction.InteractionEvent) => void, context?: any): this;
-        addListener(event: interaction.InteractionEventTypes, fn: (event: interaction.InteractionEvent) => void, context?: any): this;
+        removeListener(event: interaction.interactionEventTypes, fn?: (event: interaction.InteractionEvent) => void, context?: any): this;
+        removeAllListeners(event?: interaction.interactionEventTypes): this;
+        off(event: interaction.interactionEventTypes, fn?: (event: interaction.InteractionEvent) => void, context?: any): this;
+        addListener(event: interaction.interactionEventTypes, fn: (event: interaction.InteractionEvent) => void, context?: any): this;
     }
 
     export class TransformBase {
@@ -2252,7 +2252,7 @@ declare namespace PIXI {
             | 'mouseout'
             | 'mouseover';
         type interactionPixiEvents = 'added' | 'removed';
-        type interactionEventTypes = InteractionPointerEvents | InteractionTouchEvents | InteractionMouseEvents | InteractionPixiEvents;
+        type interactionEventTypes = interactionPointerEvents | interactionTouchEvents | interactionMouseEvents | interactionPixiEvents;
 
         export interface InteractionManagerOptions {
             autoPreventDefault?: boolean;
